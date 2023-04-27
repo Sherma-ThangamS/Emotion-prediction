@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        background-color: #F5F5F5;
+      }
+
+      .container {
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        font-size: 20px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      button[type="submit"] {
+        background-color: #008CBA;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 5px;
+        font-size: 24px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #005B7F;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px solid #008CBA;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      body {
+        background-color: #e8dfdf;
+      }
+
+      .container {
+        margin: 20px auto;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #e1d3d3;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        font-size: 20px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      button[type="submit"] {
+        background-color: #008CBA;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 5px;
+        font-size: 24px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #005B7F;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px solid #008CBA;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      } 
+
+    </style>
+    <title>Emotion Prediction</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Emotion Prediction</h1>
+      <form action="/predict" method="post">
+        <div class="form-group">
+          <label for="text-input">Enter sentence to predict emotion:</label>
+          <!-- <textarea class="form-control" name="text-input" id="text-input"  required></textarea> -->
+          <input type="text" id="text-input" name="text-input" class="form-control">
+          Try to Enter the sentence that has more than 5 words
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+          <div class="result">
+              <p>{{ prediction_text }}</p>
+          </div>
+      </form>
+      </div>
+    </div>
+  </body>
+</html>
