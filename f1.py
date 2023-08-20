@@ -11,7 +11,6 @@ import string
 import re
 import json
 import gzip
-# Load the saved model
 model = tf.keras.models.load_model("emotion_model_learning.h5")
 data=[]
 lable=[]
@@ -21,18 +20,16 @@ with gzip.open("train.jsonl.gz") as f:
         j=json.loads(l.decode('utf-8'))
         data.append(j['text'])
         lable.append(j['label'])
-app = Flask(__name__, template_folder='C:/_PROJECT_/Emotion')
+app = Flask(__name__)
 def get_sequences(tokenizer,tweets):
     sequences=tokenizer.texts_to_sequences(tweets)
     padded=pad_sequences(sequences,truncating='post',padding='post',maxlen=max_len)
     padded=np.squeeze(padded)
     return padded
-# Define the home page route
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# Define the predict route
 @app.route('/predict', methods=['POST'])
 def predict():
     text = request.form['text-input']
