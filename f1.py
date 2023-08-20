@@ -12,16 +12,16 @@ import re
 import json
 import gzip
 # Load the saved model
-model = tf.keras.models.load_model('emotion_model_learning.h5')
+model = tf.keras.models.load_model("emotion_model_learning.h5")
 data=[]
 lable=[]
 max_len = 50
-with gzip.open('train.jsonl.gz') as f:
+with gzip.open("train.jsonl.gz") as f:
     for l in f:
         j=json.loads(l.decode('utf-8'))
         data.append(j['text'])
         lable.append(j['label'])
-app = Flask(__name__)
+app = Flask(__name__, template_folder='C:/_PROJECT_/Emotion')
 def get_sequences(tokenizer,tweets):
     sequences=tokenizer.texts_to_sequences(tweets)
     padded=pad_sequences(sequences,truncating='post',padding='post',maxlen=max_len)
@@ -51,7 +51,7 @@ def predict():
     # emotion_label = emotions[np.argmax(prediction)]
     # emotion_label=index_to_class[int(prediction.max())]
     # Return the predicted emotion label
-    return render_template('index.html', prediction_text='The predicted emotion is {}'.format(pred_class))
+    return render_template("index.html", prediction_text='The predicted emotion is {}'.format(pred_class))
 
 if __name__ == '__main__':
     app.run(debug=True)
